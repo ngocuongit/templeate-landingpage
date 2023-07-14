@@ -1,0 +1,105 @@
+.quote {
+	background-color: $gray-color;
+	padding: 7rem 0;
+	&-item {
+		padding-left: 5.5rem;
+		padding-right: 5.5rem;
+		display: flex;
+		align-items: center;
+		text-align: center;
+		outline: none;
+	}
+	&-img {
+		width: 18rem;
+		height: 18rem;
+		object-fit: cover;
+		flex-shrink: 0;
+		border-radius: 100rem;
+		margin-right: 2.5rem;
+	}
+	&-icon {
+		width: 15rem;
+		height: 15rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		border: 3px solid $third-color;
+		margin-right: 6rem;
+	}
+
+	&-desc {
+		font-family: $secondary-font;
+		color: $text-color;
+		font-size: 2rem;
+		font-weight: 300;
+		line-height: 1.6;
+		font-style: italic;
+		margin-bottom: 2.5rem;
+	}
+	&-author {
+		font-size: 2.4rem;
+		font-family: $third-font;
+		position: relative;
+		padding-left: 7rem;
+		&:before {
+			content: '';
+			left: 0;
+			width: 6rem;
+			height: 0.5rem;
+			background-color: $primary-color;
+			@include absoluteCenter('top');
+			// transform: translateX(-100%);
+		}
+	}
+
+	//slick slide
+	.slick-initialized .slick-slide {
+		display: flex;
+	}
+	.slick-arrow {
+		background-color: transparent;
+		color: $gray-dark-color;
+		font-size: 3rem;
+		cursor: pointer;
+		padding: 2rem;
+		border: 0;
+		@include absoluteCenter('top');
+		z-index: 10;
+	}
+	.slick-prev {
+		left: 0;
+	}
+	.slick-next {
+		right: 0;
+	}
+	@include maxWidth(767px) {
+		&-arrow-left,
+		&-arrow-right {
+			display: none;
+		}
+		&-item {
+			padding: 0;
+			flex-direction: column;
+		}
+		&-icon {
+			margin-right: 0;
+			width: 10rem;
+			height: 10rem;
+			img {
+				max-width: 50%;
+			}
+		}
+		&-infor {
+			margin-left: 0;
+			padding-top: 3rem;
+		}
+		&-desc {
+			display: block;
+			font-size: 1.6rem;
+		}
+		&-author {
+			font-size: 2rem;
+		}
+	}
+}

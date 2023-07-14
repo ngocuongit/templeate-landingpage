@@ -1,0 +1,29 @@
+section.team
+	.container
+		+blockBox({
+			caption: "Who We Are",
+			title: "Meet Your Team",
+			desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Optio accusamus, incidunt nostrum perferendis, vero sequi, molestias qui expedita itaque molestiae rem autem? Quibusdam unde voluptatem eligendi, inventore atque beatae iusto!"
+			})
+		.team-list
+			+teamItem({
+				src: "../../images/img-team1.png",
+				name: "Mathew Dix",
+				position: "Graphic Design"
+				})
+				+teamSocial("#Mathew","#Mathew","#Mathew","#Mathew")
+			+teamItem({
+				src: "../../images/img-team2.png",
+				name: "Chirstopher Cambell",
+				position: "Brand UX/Design"
+				})
+				+teamSocial("#Chirs","#Chirs","#Chirs","#Chirs")
+			+teamItem({
+				src: "../../images/img-team3.png",
+				name: "Michael Fertig",
+				position: "Developer"
+				})
+				+teamSocial("#Michael","#Michael","#Michael","#Michael")
+section.brand
+	.container
+		img(src="../../images/img-logos.png", alt="")

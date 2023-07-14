@@ -1,0 +1,75 @@
+.work {
+	padding-top: 10rem;
+
+	&-list {
+		display: flex;
+		align-items: stretch;
+		justify-content: space-between;
+		height: 78rem;
+	}
+	&-column {
+		width: 25%;
+	}
+	&-content {
+		color: white;
+		text-align: center;
+	}
+	&-icon {
+		font-size: 3rem;
+		margin-bottom: 1.5rem;
+	}
+	&-title {
+		text-transform: uppercase;
+		margin-bottom: 1rem;
+		line-height: 1.6;
+		@include textClamp();
+	}
+	&-desc {
+		font-family: $secondary-font;
+		font-style: italic;
+		font-weight: 300;
+		font-size: 1.5rem;
+	}
+	&-img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+	&-item {
+		height: 50%;
+	}
+	&-item--full {
+		height: 100%;
+	}
+	@include maxWidth(1600px) {
+		&-list {
+			height: 60rem;
+		}
+	}
+	@include maxWidth(1279px) {
+		&-list {
+			flex-wrap: wrap;
+			height: auto;
+			overflow: hidden;
+		}
+		&-column {
+			width: 50%;
+		}
+		&-item {
+			height: 42rem;
+		}
+		&-item--full {
+			height: 84rem;
+		}
+	}
+	@include maxWidth(767px) {
+		padding-top: 5rem;
+		&-column {
+			width: 100%;
+		}
+		&-item {
+			height: 42rem;
+		}
+	}
+}
+@include hoverEffect('.work-item', '.work-content', 'false');

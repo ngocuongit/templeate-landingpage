@@ -1,0 +1,124 @@
+// absoluteCenter
+@mixin absoluteCenter($directions) {
+	position: absolute;
+	@if$directions == "left" {
+		left: 50%;
+		transform: translateX(-50%);
+	}
+	@if$directions == "top" {
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	@if$directions == "both" {
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
+
+//mixin for maxWidth
+@mixin maxWidth($breakpoint) {
+	@media screen and(max-Width: $breakpoint ) {
+		@content;
+	}
+}
+//mixin for minWidth
+@mixin minWidth($breakpoint) {
+	@media screen and(min-Width: $breakpoint ) {
+		@content;
+	}
+}
+
+//mixin hide scrollbar
+@mixin hideScrollBar() {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+//text clamp
+@mixin textClamp($row: 1, $size: 100%) {
+	display: -webkit-box;
+	-webkit-line-clamp: $row;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: $size;
+	max-width: $size;
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+@mixin hoverEffect($itemClass, $contentClass, $tranform: 'true') {
+	#{$itemClass} {
+		position: relative;
+		z-index: 1;
+		& > * {
+			transition: all 0.25s linear;
+			will-change: transform;
+		}
+		#{$contentClass} {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			visibility: hidden;
+			transition: all 0.25s linear;
+			background: linear-gradient(
+				to bottom,
+				rgba($primary-color, 0.8),
+				rgba($secondary-color, 0.8)
+			);
+			z-index: 2;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			text-align: center;
+		}
+		@if ($tranform == 'true') {
+			&::after {
+				position: absolute;
+				content: '';
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: $third-color;
+				z-index: -1;
+			}
+		}
+		&:hover {
+			#{$contentClass} {
+				opacity: 1;
+				visibility: visible;
+			}
+			@if ($tranform == 'true') {
+				& > * {
+					transform: translate(-1rem, -1rem);
+				}
+			}
+		}
+	}
+}
+@mixin touchSlider($width: 80%, $gap: 2.5rem, $padding: 1rem) {
+	display: grid !important;
+	align-items: flex-start !important;
+	grid-auto-columns: $width;
+	grid-auto-flow: column;
+	grid-template-columns: unset;
+	grid-column-gap: $gap;
+	overflow-x: auto;
+	padding: $padding;
+	scroll-snap-type: x mandatory;
+	scroll-snap-stop: always;
+	@include hideScrollBar;
+	& > * {
+		scroll-snap-align: center;
+		width: auto;
+	}
+}

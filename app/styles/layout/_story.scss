@@ -1,0 +1,141 @@
+.story {
+	padding: 10rem 0;
+	&-list {
+		display: flex;
+		align-items: stretch;
+		justify-content: space-between;
+	}
+	&-item {
+		width: calc(33.33% - 2rem);
+	}
+	&-media {
+		position: relative;
+		margin-bottom: 2rem;
+	}
+	&-img {
+		width: 100%;
+		height: 24rem;
+		object-fit: cover;
+	}
+	&-date {
+		background-color: $third-color;
+		padding: 1.5rem 2rem;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		color: white;
+		position: absolute;
+		left: -1rem;
+		bottom: 1rem;
+		// z-index: -10;
+	}
+	&-number {
+		font-size: 3rem;
+		font-weight: bold;
+	}
+	&-text {
+		font-size: 1.5rem;
+		font-family: $secondary-font;
+		font-style: italic;
+	}
+	&-title {
+		text-transform: uppercase;
+		margin-bottom: 2rem;
+		font-weight: 500;
+		line-height: 1.4;
+	}
+	&-desc {
+		color: $text-color;
+		font-weight: 300;
+		font-family: $secondary-font;
+		line-height: 1.6;
+		font-size: 1.5rem;
+		margin-bottom: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid $gray-color;
+	}
+	&-meta {
+		margin-top: 2rem;
+		display: flex;
+		align-items: center;
+	}
+	&-meta-item {
+		margin-left: 2rem;
+	}
+	&-meta-icon {
+		// font-size: 2.5rem;
+		color: $third-color;
+		margin-right: 5px;
+	}
+	&-meta-number {
+		color: $text-color;
+		font-size: 1.5rem;
+		font-family: $secondary-font;
+		font-style: italic;
+		font-weight: 300;
+	}
+	@include maxWidth(1023px) {
+		padding: 5rem 0;
+		&-img {
+			height: 14rem;
+		}
+		&-date {
+			padding: 1rem 1.5rem;
+		}
+		&-number {
+			font-size: 2rem;
+		}
+		&-title {
+			font-size: 1.2rem;
+		}
+		&-text {
+			font-size: 1.3rem;
+			@include textClamp(4);
+		}
+	}
+	@include maxWidth(767px) {
+		margin-bottom: 0;
+		&-list {
+			display: block;
+		}
+		&-item {
+			width: 100%;
+			margin-bottom: 5rem;
+		}
+		&-date {
+			left: -5px;
+			bottom: 5px;
+		}
+		&-img {
+			height: auto;
+		}
+	}
+}
+.map {
+	padding: 6rem 0;
+	margin-bottom: 10rem;
+	background: linear-gradient(to bottom, rgba(white, 0.8), rgba(white, 0.8)),
+		url('../../images/img-map.png') no-repeat center/cover;
+	&-content {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+	&-heading {
+		margin-top: 2rem;
+		font-weight: bold;
+		font-size: 2.4rem;
+		color: $primary-color;
+		padding-bottom: 2rem;
+		text-transform: uppercase;
+		position: relative;
+		&::after {
+			content: '';
+			width: 6.5rem;
+			height: 4px;
+			background-color: $primary-color;
+			@include absoluteCenter('left');
+			bottom: 0;
+		}
+	}
+}

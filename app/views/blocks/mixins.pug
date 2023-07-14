@@ -1,0 +1,102 @@
+mixin menuLink(data)
+	li.header-menu-item
+		a.header-menu-link(href= data.href)= data.title
+
+mixin headerBottomItem(data)
+	.header-bottom-item
+		span.header-bottom-number= data.number
+		span.header-bottom-text= data.text
+
+mixin blockBox(data)
+	.block-box
+		h3.block-box-caption= data.caption
+		h2.block-box-title= data.title
+		if data.desc
+			p.block-box-desc= data.desc
+
+mixin aboutItem(data)
+	.about-item
+		img.about-image(src= data.src, alt= data.alt)
+		.about-content
+			i.about-icon(class= data.classIcon)
+			span.about-title= data.title
+mixin serviceItem(data)
+	.service-item
+		img.service-item-icon(src= data.src)
+		.service-item-info
+			h3.service-item-title= data.title
+			p.service-item-desc= data.desc
+mixin descItem(data)
+	.description-item(class= data.active)
+		.description-item-header
+			img(src= data.src alt= data.alt).description-item-icon
+			.description-item-title= data.title
+			i.fal.fa-angle-down.description-item-arrow
+		.description-item-desc
+			.description-item-text= data.text
+mixin teamSocial(facebook= '#',twitter= '#',instagram= '#',pinterest= '#')
+	ul.team-social
+		li.team-social-item
+			a.team-social-link(href= facebook)
+				i.fab.fa-facebook-f
+		li.team-social-item
+			a.team-social-link(href= twitter)
+				i.fab.fa-twitter
+		li.team-social-item
+			a.team-social-link(href= instagram)
+				i.fab.fa-instagram
+		li.team-social-item
+			a.team-social-link(href= pinterest)
+				i.fab.fa-pinterest
+
+mixin teamItem(data)
+	.team-item
+				.team-main
+					img.team-img(src= data.src)
+					.team-content
+						if block
+							block
+				.team-info
+					h3.team-name= data.name
+					span.team-position= data.position
+mixin workItem(data)
+	.work-item(class= data.full)
+		img.work-img(src= data.srcImg)
+		.work-content
+			img.work-icon(src= data.srcIcon)
+			h3.work-title= data.title
+			span.work-desc= data.desc
+mixin peopleItem(data)
+	li.people-item
+		img.people-img(src=data.src, alt="")
+		.people-content
+			h3.people-name= data.name
+			span.people-position= data.pos
+			p.people-desc= data.desc
+mixin storyItem(data)
+	li.story-item
+		.story-media
+			img.story-img(src= data.src, alt="")
+			.story-date
+				span.story-number= data.numberDate
+				span.story-text= data.textDate
+		h3.story-title= data.title
+		.story-desc
+			p.story-text= data.desc
+		.story-meta
+			.story-meta-item
+				i.fa.fa-eye.story-meta-icon
+				span.story-meta-number= data.seens
+			.story-meta-item
+				i.fa.fa-comment.story-meta-icon
+				span.story-meta-number= data.comments
+mixin quoteItem(data)
+	.quote-item
+		if data.type == false
+			.quote-icon
+				img(src= data.src, alt="")
+		else
+			img(src= data.src, alt="").quote-img
+		.quote-infor
+			p.quote-desc= data.desc
+			span.quote-author= data.author
